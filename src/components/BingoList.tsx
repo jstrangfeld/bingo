@@ -3,41 +3,41 @@ import { BingoStates } from "../BingoState";
 
 function BingoList({ bingoState }: { bingoState: BingoState }) {
   return (
-    <table className="col-start-2 table-fixed text-center">
+    <table className="col-start-2 table-fixed text-center text-xl">
       <thead>
         <tr className="divide-x divide-opacity-10 divide-base-content">
           <th>
             <img
               className="inline"
-              src="https://placehold.co/50x50/1a103d/512e91?text=B&font=roboto"
+              src="https://placehold.co/100x100/1a103d/512e91?text=B&font=roboto"
               alt="B"
             />
           </th>
           <th>
             <img
               className="inline"
-              src="https://placehold.co/50x50/1a103d/512e91?text=I&font=roboto"
+              src="https://placehold.co/100x100/1a103d/512e91?text=I&font=roboto"
               alt="I"
             />
           </th>
           <th>
             <img
               className="inline"
-              src="https://placehold.co/50x50/1a103d/512e91?text=N&font=roboto"
+              src="https://placehold.co/100x100/1a103d/512e91?text=N&font=roboto"
               alt="N"
             />
           </th>
           <th>
             <img
               className="inline"
-              src="https://placehold.co/50x50/1a103d/512e91?text=G&font=roboto"
+              src="https://placehold.co/100x100/1a103d/512e91?text=G&font=roboto"
               alt="G"
             />
           </th>
           <th>
             <img
               className="inline"
-              src="https://placehold.co/50x50/1a103d/512e91?text=O&font=roboto"
+              src="https://placehold.co/100x100/1a103d/512e91?text=O&font=roboto"
               alt="O"
             />
           </th>
@@ -55,7 +55,7 @@ function BingoList({ bingoState }: { bingoState: BingoState }) {
                 style={{
                   willChange: "color",
                   transitionDuration: "0.5s",
-                  transitionDelay: "3s",
+                  transitionDelay: "2s",
                 }}
                 className={
                   bingoState.values[col * bingoState.size.rows + row].value ===
