@@ -1,6 +1,6 @@
 export default function Rules() {
   return (
-    <select className="select select-ghost select-lg w-[600px] text-2xl">
+    <select className="select select-ghost select-lg w-[600px] text-3xl uppercase text-header">
       <option disabled selected></option>
       <option>One line (standard)</option>
       <option>Two lines</option>

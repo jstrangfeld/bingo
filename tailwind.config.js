@@ -10,10 +10,11 @@ export default {
     themes: [
       {
         mytheme: {
-          ...require("daisyui/src/theming/themes")["synthwave"],
-          primary: "#ad8efe",
-          secondary: "#d8b458",
-          accent: "#8ccc85",
+          primary: "#895656",
+          secondary: "#47080b",
+          accent: "#36948e",
+          neutral: "#bc7676",
+          "base-100": "#ddbaba",
         },
       },
     ],

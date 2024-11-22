@@ -11,9 +11,9 @@ function App() {
 
   return (
     <>
-      <nav className="navbar md:fixed bg-base-300 drop-shadow-lg flex place-content-between px-8">
-        <h1 className="text-primary text-xl">Grandfriends Bingo</h1>
-        <h1 className="text-primary text-xl">
+      <nav className="navbar md:fixed bg-primary drop-shadow-lg flex place-content-between px-8">
+        <h1 className="text-base-100 text-4xl">Fifth Grade Feast Bingo</h1>
+        <h1 className="text-base-100 text-4xl">
           Upper Moreland Elementary School HSA
         </h1>
       </nav>
@@ -24,12 +24,11 @@ function App() {
         <section className="md:col-start-1 md:row-start-1 ml-4 flex flex-col gap-16">
           <Rules />
           <Spinner bingoState={bingoState} spinState={spinState} />
-          <div />
         </section>
       </main>
       <footer className="md:fixed bottom-4 left-4">
         <button
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg text-3xl"
           disabled={spinState}
           onClick={() => {
             setSpinState(true);
@@ -56,7 +55,7 @@ function App() {
           SPIN
         </button>
         <button
-          className="btn btn-base-300 ml-8"
+          className="btn btn-neutral ml-8 text-3xl btn-lg text-secondary"
           onClick={() =>
             confirm("Are you sure you want to reset?") && location.reload()
           }

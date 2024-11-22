@@ -6,41 +6,11 @@ function BingoList({ bingoState }: { bingoState: BingoState }) {
     <table className="col-start-2 table-fixed text-center text-xl">
       <thead>
         <tr className="divide-x divide-opacity-10 divide-base-content">
-          <th>
-            <img
-              className="inline"
-              src="https://placehold.co/100x100/1a103d/512e91?text=B&font=roboto"
-              alt="B"
-            />
-          </th>
-          <th>
-            <img
-              className="inline"
-              src="https://placehold.co/100x100/1a103d/512e91?text=I&font=roboto"
-              alt="I"
-            />
-          </th>
-          <th>
-            <img
-              className="inline"
-              src="https://placehold.co/100x100/1a103d/512e91?text=N&font=roboto"
-              alt="N"
-            />
-          </th>
-          <th>
-            <img
-              className="inline"
-              src="https://placehold.co/100x100/1a103d/512e91?text=G&font=roboto"
-              alt="G"
-            />
-          </th>
-          <th>
-            <img
-              className="inline"
-              src="https://placehold.co/100x100/1a103d/512e91?text=O&font=roboto"
-              alt="O"
-            />
-          </th>
+          <th className="w-[100px] text-5xl text-secondary text-center">B</th>
+          <th className="w-[100px] text-5xl text-secondary text-center">I</th>
+          <th className="w-[100px] text-5xl text-secondary text-center">N</th>
+          <th className="w-[100px] text-5xl text-secondary text-center">G</th>
+          <th className="w-[100px] text-5xl text-secondary text-center">O</th>
         </tr>
       </thead>
       <tbody>
@@ -60,11 +30,11 @@ function BingoList({ bingoState }: { bingoState: BingoState }) {
                 className={
                   bingoState.values[col * bingoState.size.rows + row].value ===
                   BingoStates.picked
-                    ? "font-bold text-accent"
+                    ? "font-bold text-secondary"
                     : bingoState.values[col * bingoState.size.rows + row]
                           .value === BingoStates.visible
                       ? "font-bold text-secondary"
-                      : "text-base-content text-opacity-30"
+                      : "text-neutral"
                 }
               >
                 {bingoState.values[col * bingoState.size.rows + row].key}
