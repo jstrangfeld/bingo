@@ -8,11 +8,11 @@ export default function Slot({
   target: number | null;
 }) {
   return (
-    <section className="relative w-[200px] h-[200px] overflow-hidden">
+    <section className="relative h-[200px] w-[200px] overflow-hidden">
       {target === null || isNaN(target) ? null : (
         <>
           <div
-            className="w-[172px] h-[172px]"
+            className="h-[172px] w-[172px]"
             style={{
               animation: "spin 1s linear infinite",
               transformStyle: "preserve-3d",
@@ -20,7 +20,7 @@ export default function Slot({
           >
             {imgs.map((url, idx) => (
               <span
-                className="absolute top-0 left-0 w-full h-full origin-center"
+                className="absolute top-0 left-0 h-full w-full origin-center"
                 key={idx}
                 style={{
                   transform: `rotateX(${-idx * (360 / imgs.length) - 90}deg) rotateY(-180deg) translateZ(-200px)`,
@@ -29,7 +29,7 @@ export default function Slot({
               >
                 <img
                   alt={url.split("text=")[1][0]}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  className="absolute top-0 left-0 h-full w-full object-cover"
                   src={url}
                   style={{
                     backfaceVisibility: "hidden",
@@ -45,7 +45,7 @@ export default function Slot({
                 alt={url.split("text=")[1][0]}
                 className={[
                   !spinState && idx === target ? "picked" : "",
-                  "absolute h-[200px] w-[200px] top-0 opacity-0 translate-y-full",
+                  "absolute top-0 h-[200px] w-[200px] translate-y-full opacity-0",
                 ].join(" ")}
                 key={idx}
                 src={url}

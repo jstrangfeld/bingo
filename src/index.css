@@ -1,31 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Sriracha&family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  font-family: "Sriracha", sans-serif;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    business --prefersdark,
+    cupcake;
 }
 
-table {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-}
-body::before {
-  background: fixed no-repeat
-    url(https://images.unsplash.com/photo-1729828175177-e40523d2e554?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  /**/
-  position: fixed;
-  background-size: cover;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  content: "";
-  z-index: -1;
-  filter: opacity(0.15);
+@theme {
+  --title: "Fifth Grade Fundraiser Bingo";
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-digits: "Inter", sans-serif;
 }
 
 .picked {

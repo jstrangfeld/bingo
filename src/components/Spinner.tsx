@@ -12,27 +12,7 @@ export default function Spinner({
   const neutral = "DEDDBA";
   return (
     <div>
-      <div className="w-[600px] flex items-center z-10">
-        <div className="flex-1 grid place-items-center">
-          <img
-            className="h-28"
-            src="https://www.svgrepo.com/show/209792/turkey-chicken.svg"
-          />
-        </div>
-        <div className="flex-1 grid place-items-center">
-          <img
-            className="h-28"
-            src="https://www.svgrepo.com/show/209802/restaurant-dish.svg"
-          />
-        </div>
-        <div className="flex-1 grid place-items-center">
-          <img
-            className="h-24"
-            src="https://www.svgrepo.com/show/209811/cornucopia.svg"
-          />
-        </div>
-      </div>
-      <div className="w-[600px] flex items-center overflow-clip bg-accent z-1">
+      <div className="bg-accent z-1 flex w-[600px] items-center overflow-clip">
         <Slot
           imgs={[
             `https://placehold.co/200x200/${primary}/${neutral}?text=B&font=open+sans`,
@@ -46,7 +26,7 @@ export default function Spinner({
             bingoState.activeIndex > -1
               ? "BINGO".indexOf(
                   bingoState.values[bingoState.history[bingoState.activeIndex]]
-                    .key[0]
+                    .key[0],
                 )
               : null
           }

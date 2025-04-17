@@ -5,19 +5,19 @@ function BingoList({ bingoState }: { bingoState: BingoState }) {
   return (
     <table className="col-start-2 table-fixed text-center text-xl">
       <thead>
-        <tr className="divide-x divide-opacity-10 divide-base-content">
-          <th className="w-[100px] text-5xl text-secondary text-center">B</th>
-          <th className="w-[100px] text-5xl text-secondary text-center">I</th>
-          <th className="w-[100px] text-5xl text-secondary text-center">N</th>
-          <th className="w-[100px] text-5xl text-secondary text-center">G</th>
-          <th className="w-[100px] text-5xl text-secondary text-center">O</th>
+        <tr className="divide-opacity-10 divide-base-content divide-x">
+          <th className="text-secondary w-[100px] text-center text-5xl">B</th>
+          <th className="text-secondary w-[100px] text-center text-5xl">I</th>
+          <th className="text-secondary w-[100px] text-center text-5xl">N</th>
+          <th className="text-secondary w-[100px] text-center text-5xl">G</th>
+          <th className="text-secondary w-[100px] text-center text-5xl">O</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="font-digits">
         {Array.from({ length: bingoState.size.rows }).map((_, row) => (
           <tr
             key={row}
-            className="divide-x divide-opacity-10 divide-base-content"
+            className="divide-opacity-10 divide-base-content divide-x"
           >
             {Array.from({ length: bingoState.size.cols }).map((_, col) => (
               <td
@@ -30,10 +30,10 @@ function BingoList({ bingoState }: { bingoState: BingoState }) {
                 className={
                   bingoState.values[col * bingoState.size.rows + row].value ===
                   BingoStates.picked
-                    ? "font-bold text-secondary"
+                    ? "text-secondary font-bold"
                     : bingoState.values[col * bingoState.size.rows + row]
                           .value === BingoStates.visible
-                      ? "font-bold text-secondary"
+                      ? "text-secondary font-bold"
                       : "text-neutral"
                 }
               >
