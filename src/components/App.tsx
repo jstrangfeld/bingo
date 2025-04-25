@@ -1,6 +1,7 @@
 import { AppShell, Button, Card, Grid, Group, Title } from "@mantine/core";
 import BingoState, { BingoStates } from "../BingoState";
 
+import { useHotkeys } from "@mantine/hooks";
 import { useState } from "react";
 import BingoList from "./BingoList";
 import Rules from "./Rules";
@@ -9,6 +10,27 @@ import Spinner from "./Spinner";
 function App() {
   const [bingoState, setBingoState] = useState(() => BingoState());
   const [spinState, setSpinState] = useState(false);
+
+  const spinHandler = () => {
+    setSpinState(true);
+    setBingoState((prev) => {
+      const prevBingoState = { ...prev };
+      if (prevBingoState.activeIndex >= prevBingoState.history.length - 1)
+        return prevBingoState;
+      if (prevBingoState.activeIndex > -1)
+        prevBingoState.values[
+          prevBingoState.history[prevBingoState.activeIndex]
+        ].value = BingoStates.visible;
+      prevBingoState.values[
+        prevBingoState.history[prevBingoState.activeIndex + 1]
+      ].value = BingoStates.picked;
+      prevBingoState.activeIndex = prevBingoState.activeIndex + 1;
+      return prevBingoState;
+    });
+    setTimeout(() => setSpinState(false), 2000);
+  };
+
+  useHotkeys([["s", () => !spinState && spinHandler()]]);
 
   return (
     <AppShell
@@ -49,27 +71,7 @@ function App() {
             radius="lg"
             color="secondary.9"
             disabled={spinState}
-            onClick={() => {
-              setSpinState(true);
-              setBingoState((prev) => {
-                const prevBingoState = { ...prev };
-                if (
-                  prevBingoState.activeIndex >=
-                  prevBingoState.history.length - 1
-                )
-                  return prevBingoState;
-                if (prevBingoState.activeIndex > -1)
-                  prevBingoState.values[
-                    prevBingoState.history[prevBingoState.activeIndex]
-                  ].value = BingoStates.visible;
-                prevBingoState.values[
-                  prevBingoState.history[prevBingoState.activeIndex + 1]
-                ].value = BingoStates.picked;
-                prevBingoState.activeIndex = prevBingoState.activeIndex + 1;
-                return prevBingoState;
-              });
-              setTimeout(() => setSpinState(false), 2000);
-            }}
+            onClick={spinHandler}
           >
             SPIN
           </Button>
