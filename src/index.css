@@ -2,12 +2,6 @@
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui" {
-  themes:
-    light --default,
-    business --prefersdark,
-    cupcake;
-}
 
 @theme {
   --title: "Fifth Grade Fundraiser Bingo";

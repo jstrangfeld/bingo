@@ -1,30 +1,152 @@
+import { Select, Text } from "@mantine/core";
+
+import { useState } from "react";
+
 export default function Rules() {
+  const [rules, setRules] = useState<string | null>("One line (standard)");
   return (
-    <div className="dropdown dropdown-top">
-      <div tabIndex={0} role="button" className="btn">
-        Game Rules
-        <svg
-          width="12px"
-          height="12px"
-          className="inline-block h-2 w-2 fill-current opacity-60"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 2048 2048"
-        >
-          <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-        </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-      >
-        <li>One line (standard)</li>
-        <li>Two lines</li>
-        <li>Four corners</li>
-        <li>Giant U</li>
-        <li>Giant M</li>
-        <li>Giant X</li>
-        <li>Blackout</li>
-      </ul>
-    </div>
+    <>
+      <Text size="lg" fw="bold">
+        Game Rules:
+      </Text>
+      <Select
+        variant="transparent"
+        size="xl"
+        data={[
+          "One line (standard)",
+          "Two lines",
+          "Four corners",
+          "Giant U",
+          "Giant M",
+          "Giant X",
+          "Giant H",
+          "Outside",
+          "Full House (Cover all)",
+        ]}
+        defaultValue="One line (standard)"
+        onChange={(val) => {
+          setRules(val);
+        }}
+      />
+      <Text style={{ letterSpacing: "-.4rem", lineHeight: 1 }} size="xs">
+        {rules === "One line (standard)" ? (
+          <pre>
+            🔸🔸🔸🔸🔸
+            <br />
+            🔸🔸🔸🔸🔸
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🔸🔸🔸🔸🔸
+            <br />
+            🔸🔸🔸🔸🔸
+          </pre>
+        ) : null}
+        {rules === "Two lines" ? (
+          <pre>
+            🔸🟨🔸🔸🔸
+            <br />
+            🔸🟨🔸🔸🔸
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🔸🟨🔸🔸🔸
+            <br />
+            🔸🟨🔸🔸🔸
+          </pre>
+        ) : null}
+        {rules === "Four corners" ? (
+          <pre>
+            🟨🔸🔸🔸🟨
+            <br />
+            🔸🔸🔸🔸🔸
+            <br />
+            🔸🔸🔸🔸🔸
+            <br />
+            🔸🔸🔸🔸🔸
+            <br />
+            🟨🔸🔸🔸🟨
+          </pre>
+        ) : null}
+        {rules === "Giant U" ? (
+          <pre>
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🟨🟨🟨🟨
+          </pre>
+        ) : null}
+        {rules === "Giant M" ? (
+          <pre>
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🟨🔸🟨🟨
+            <br />
+            🟨🔸🟨🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+          </pre>
+        ) : null}
+        {rules === "Giant X" ? (
+          <pre>
+            🟨🔸🔸🔸🟨
+            <br />
+            🔸🟨🔸🟨🔸
+            <br />
+            🔸🔸🟨🔸🔸
+            <br />
+            🔸🟨🔸🟨🔸
+            <br />
+            🟨🔸🔸🔸🟨
+          </pre>
+        ) : null}
+        {rules === "Giant H" ? (
+          <pre>
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+          </pre>
+        ) : null}
+        {rules === "Outside" ? (
+          <pre>
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🔸🔸🔸🟨
+            <br />
+            🟨🟨🟨🟨🟨
+          </pre>
+        ) : null}
+        {rules === "Full House (Cover all)" ? (
+          <pre>
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🟨🟨🟨🟨
+            <br />
+            🟨🟨🟨🟨🟨
+          </pre>
+        ) : null}
+      </Text>
+    </>
   );
 }
